@@ -1,4 +1,4 @@
-/**
+/*
  * Format-Preserving Encryption
  * 
  * Copyright (c) 2016 Weydstone LLC dba Sutton Abinger
