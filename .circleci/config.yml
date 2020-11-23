@@ -17,6 +17,10 @@ parameters:
     description: ""
     type: string
     default: "arn:aws:iam::883127560329:role/VGSStageDeploy"
+  cache_key_prefix:
+    description: ""
+    type: string
+    default: "fpe4j"
 
 commands:
   maven:
@@ -88,8 +92,8 @@ jobs:
       - restore_cache:
           name: "Restoring Cache"
           keys:
-            - maven-fpe4j-{{ checksum "pom.xml" }}
-            - "maven-fpelib"
+            - maven-<< pipeline.parameters.aws_account_id >>-{{ checksum "pom.xml" }}
+            - "maven-<< pipeline.parameters.aws_account_id >>"
             - "maven"
       - maven:
           goals: "dependency:go-offline"
@@ -106,7 +110,7 @@ jobs:
       - save_cache:
           name: "Saving Cache"
           when: "always"
-          key: maven-fpe4j-{{ checksum "pom.xml" }}
+          key: maven-<< pipeline.parameters.aws_account_id >>-{{ checksum "pom.xml" }}
           paths:
             - "~/.m2/repository"
 
