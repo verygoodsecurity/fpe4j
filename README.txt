@@ -1,3 +1,9 @@
+# Fpe4j
+
+VGS fork of Format-Preserving Encryption Library for Java  by weydstone (see the link for the original clone source)
+
+All operational details are available in [Compass](https://verygoodsecurity.atlassian.net/compass/component/695ee93f-026a-4164-bea6-f070e2cf7222).
+
 Format-Preserving Encryption
 ============================
 
